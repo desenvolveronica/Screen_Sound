@@ -1,6 +1,6 @@
 ﻿//https://fsymbols.com/generators/zalgo/
 //usando @ vc mostra a string literal
-string mensagem = @"
+string logo = @"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
 ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
 ╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
@@ -8,4 +8,11 @@ string mensagem = @"
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
 ";
-Console.WriteLine(mensagem);
+string mensagem = "Bem Vindo ao Screen Sound!";
+void ExibirMensagemBoasVindas()
+{
+    Console.WriteLine(logo);
+    Console.WriteLine(mensagem);
+}
+
+ExibirMensagemBoasVindas();
