@@ -30,7 +30,7 @@ void ExibirMenu()
     int opcaoEscolhida = int.Parse(opcao);
     switch (opcaoEscolhida)//em parênteses coloca quem é o alvo da verificação
     {
-        case 1: Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+        case 1: RegistrarBanda();
             break;
         case 2: Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
             break;
@@ -46,6 +46,14 @@ void ExibirMenu()
         default: Console.WriteLine("Opção Inválida");
             break;
     }
+}
+void RegistrarBanda()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de Bandas\n");
+    Console.Write("Digite o nome da banda que você quer registrar: ");
+    string nomeDaBanda = Console.ReadLine()!;//colocando o ! indicamos que não queremos trabalhar com valor nulo
+    Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
 }
 ExibirMensagemBoasVindas();
 ExibirMenu();
