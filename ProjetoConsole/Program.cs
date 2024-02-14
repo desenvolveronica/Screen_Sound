@@ -9,7 +9,7 @@ string logo = @"
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
 ";
 string mensagem = "Bem Vindo ao Screen Sound!";
-void ExibirMensagemBoasVindas()
+void ExibirLogo()
 {
     Console.WriteLine(logo);
     Console.WriteLine(mensagem);
@@ -17,6 +17,7 @@ void ExibirMensagemBoasVindas()
 
 void ExibirMenu()
 {
+    ExibirLogo();
     Console.WriteLine("\nDigite 1 para registrar uma banda");
     Console.WriteLine("Digite 2 para mostrar todas as bandas");
     Console.WriteLine("Digite 3 para avaliar uma banda");
@@ -53,7 +54,10 @@ void RegistrarBanda()
     Console.WriteLine("Registro de Bandas\n");
     Console.Write("Digite o nome da banda que você quer registrar: ");
     string nomeDaBanda = Console.ReadLine()!;//colocando o ! indicamos que não queremos trabalhar com valor nulo
+   
     Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    ExibirMenu();
 }
-ExibirMensagemBoasVindas();
 ExibirMenu();
