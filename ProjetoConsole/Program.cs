@@ -72,7 +72,7 @@ void RegistrarBanda()
     ExibirTituloDaOpcao("Registro de Bandas");
     Console.Write("Digite o nome da banda que você quer registrar: ");
     string nomeDaBanda = Console.ReadLine()!;//colocando o ! indicamos que não queremos trabalhar com valor nulo
-    ListaDeBandas.Add(nomeDaBanda);
+    BandasRegistradas.Add(nomeDaBanda, new List<int>());
     Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
     Thread.Sleep(2000);
     Console.Clear();
@@ -83,7 +83,7 @@ void MostrarBandasRegistradas()
     Console.Clear();
     ExibirTituloDaOpcao("Bandas Registradas");
 
-    if (ListaDeBandas.Count == 0)
+    if (BandasRegistradas.Keys.Count == 0)
     {
         Console.WriteLine("Esta Lista está vazia");
     }
@@ -97,7 +97,7 @@ void MostrarBandasRegistradas()
         //    var posItem = posicao++;
         //    Console.WriteLine($"{posItem} - {itensLista}");
         //}
-        foreach(string banda in ListaDeBandas)
+        foreach(string banda in BandasRegistradas.Keys)
         {
             var posItem = posicao++;
             Console.WriteLine($"{posItem} - {banda}");
