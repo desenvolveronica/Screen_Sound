@@ -67,10 +67,7 @@ void ExibirMenu()
 void RegistrarBanda()
 {
     Console.Clear();
-    Console.WriteLine("*********************");
-    Console.WriteLine("Registro de Bandas");
-    Console.WriteLine("*********************\n");
-
+    ExibirTituloDaOpcao("Registro de Bandas");
     Console.Write("Digite o nome da banda que você quer registrar: ");
     string nomeDaBanda = Console.ReadLine()!;//colocando o ! indicamos que não queremos trabalhar com valor nulo
     ListaDeBandas.Add(nomeDaBanda);
@@ -82,9 +79,8 @@ void RegistrarBanda()
 void MostrarBandasRegistradas()
 {
     Console.Clear();
-    Console.WriteLine("*********************");
-    Console.WriteLine("Bandas Registradas");
-    Console.WriteLine("*********************\n");
+    ExibirTituloDaOpcao("Bandas Registradas");
+
     if (ListaDeBandas.Count == 0)
     {
         Console.WriteLine("Esta Lista está vazia");
@@ -93,18 +89,30 @@ void MostrarBandasRegistradas()
     {
         //percorrer em um for para exibir todas as bandas da lista
         var posicao = 1;
-        for (int i = 0; i < ListaDeBandas.Count; i++)
+        //for (int i = 0; i < ListaDeBandas.Count; i++)
+        //{
+        //    var itensLista = ListaDeBandas[i].ToString();
+        //    var posItem = posicao++;
+        //    Console.WriteLine($"{posItem} - {itensLista}");
+        //}
+        foreach(string banda in ListaDeBandas)
         {
-            var itensLista = ListaDeBandas[i].ToString();
             var posItem = posicao++;
-            Console.WriteLine($"{posItem} - {itensLista}");
+            Console.WriteLine($"{posItem} - {banda}");
         }
-    }
-    
+   }
     Console.WriteLine("\nPressione qualquer tecla para voltar ao menu principal");
     Console.ReadKey();
     Console.Clear();
     ExibirMenu();
+}
+void ExibirTituloDaOpcao(string titulo)
+{
+    int quantidadeDeLetras = titulo.Length;
+    string asteriscos = string.Empty.PadLeft(quantidadeDeLetras, '*');
+    Console.WriteLine(asteriscos);
+    Console.WriteLine(titulo);
+    Console.WriteLine($"{asteriscos}\n");
 }
 
 ExibirMenu();
