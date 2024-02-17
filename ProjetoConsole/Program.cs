@@ -11,7 +11,8 @@ string logo = @"
 string mensagem = "Bem Vindo ao Screen Sound!";
 //List<string> ListaDeBandas = new List<string> { "Beatles", "U2", "Red Hot Chili Peppers" };
 Dictionary<string, List<int>> BandasRegistradas = new Dictionary<string, List<int>>();
-
+BandasRegistradas.Add("Red Hot Chili Peppers", new List<int>());
+BandasRegistradas.Add("Linkin Park", new List<int> { 10, 9, 8});
 void ExibirLogo()
 {
     Console.WriteLine(logo);
