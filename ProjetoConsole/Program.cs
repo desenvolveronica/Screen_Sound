@@ -9,6 +9,7 @@ string logo = @"
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░
 ";
 string mensagem = "Bem Vindo ao Screen Sound!";
+List<string> ListaDeBandas = new List<string>();
 void ExibirLogo()
 {
     Console.WriteLine(logo);
@@ -28,25 +29,40 @@ void ExibirMenu()
     string opcao = Console.ReadLine()!;
     
     
-    int opcaoEscolhida = int.Parse(opcao);
-    switch (opcaoEscolhida)//em parênteses coloca quem é o alvo da verificação
+    try
     {
-        case 1: RegistrarBanda();
-            break;
-        case 2: Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
-            break;
-        case 3:
-            Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
-            break;
-        case 4:
-            Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
-            break;
-        case -1:
-            Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
-            break;
-        default: Console.WriteLine("Opção Inválida");
-            break;
+        int opcaoEscolhida = int.Parse(opcao);
+
+        switch (opcaoEscolhida)//em parênteses coloca quem é o alvo da verificação
+        {
+            case 1:
+                RegistrarBanda();
+                break;
+            case 2:
+                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                break;
+            case 3:
+                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                break;
+            case 4:
+                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                break;
+            case -1:
+                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                break;
+            default:
+                Console.WriteLine("Opção Inválida");
+                break;
+        }
     }
+    catch
+    {
+        Console.WriteLine("Digite uma opção do menu");
+        Thread.Sleep(2000);
+        Console.Clear();
+        ExibirMenu();
+    }
+   
 }
 void RegistrarBanda()
 {
@@ -54,7 +70,8 @@ void RegistrarBanda()
     Console.WriteLine("Registro de Bandas\n");
     Console.Write("Digite o nome da banda que você quer registrar: ");
     string nomeDaBanda = Console.ReadLine()!;//colocando o ! indicamos que não queremos trabalhar com valor nulo
-   
+    ListaDeBandas.Add(nomeDaBanda);
+    Console.WriteLine(ListaDeBandas.Count);
     Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso!");
     Thread.Sleep(2000);
     Console.Clear();
