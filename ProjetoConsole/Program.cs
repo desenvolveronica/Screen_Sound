@@ -45,7 +45,7 @@ void ExibirMenu()
                 MostrarBandasRegistradas();
                 break;
             case 3:
-                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                AvaliarBanda();
                 break;
             case 4:
                 Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
@@ -108,6 +108,11 @@ void MostrarBandasRegistradas()
     Console.ReadKey();
     Console.Clear();
     ExibirMenu();
+}
+void AvaliarBanda()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("Avaliar Banda");
 }
 void ExibirTituloDaOpcao(string titulo)
 {
