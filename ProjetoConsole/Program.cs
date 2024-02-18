@@ -1,5 +1,8 @@
 ﻿//https://fsymbols.com/generators/zalgo/
 //usando @ vc mostra a string literal
+using System.Runtime;
+using System.Xml;
+
 string logo = @"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
 ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
@@ -25,7 +28,7 @@ void ExibirMenu()
     Console.WriteLine("\nDigite 1 para registrar uma banda");
     Console.WriteLine("Digite 2 para mostrar todas as bandas");
     Console.WriteLine("Digite 3 para avaliar uma banda");
-    Console.WriteLine("Digite 4 para exibir a média uma banda");
+    Console.WriteLine("Digite 4 para exibir a média de uma banda");
     Console.WriteLine("Digite -1 para sair");
 
     Console.Write("\nDigite sua opção: ");
@@ -48,7 +51,7 @@ void ExibirMenu()
                 AvaliarBanda();
                 break;
             case 4:
-                Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
+                MediaDaBanda();
                 break;
             case -1:
                 Console.WriteLine(" Você escolheu a opção " + opcaoEscolhida);
@@ -135,7 +138,34 @@ void AvaliarBanda()
 
     }
 
-    Console.WriteLine();
+}
+void MediaDaBanda()
+{
+    Console.Clear();
+    ExibirTituloDaOpcao("Média de uma Banda");
+    Console.Write("Selecione a banda que deseja saber a média: ");
+    string bandaAlvo = Console.ReadLine()!;
+   
+    if (BandasRegistradas.ContainsKey(bandaAlvo))
+    {
+
+        List<int> notasDaBanda = BandasRegistradas[bandaAlvo];
+        double media = notasDaBanda.Average();
+
+        Console.WriteLine($"A média da nota da banda {bandaAlvo} é de {media}!");
+        Thread.Sleep(2000);
+        Console.Clear();
+        ExibirMenu(); 
+
+    }
+    else
+    {
+        Console.WriteLine($"A banda {bandaAlvo} não localizada no dicionário");
+        Console.WriteLine("Digite qualquer tecla para voltar ao menu principal");
+        Console.ReadKey();
+        Console.Clear();
+        ExibirMenu();
+    }
 
 }
 void ExibirTituloDaOpcao(string titulo)
